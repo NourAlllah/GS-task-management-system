@@ -1,0 +1,55 @@
+
+  .wrapper {
+    border-radius: 5px;
+    display: inline-block;
+    background: #fff;
+    position: relative;
+    margin: 20px 50px;
+    width: 300px;
+    height: auto;
+    overflow: hidden;
+    box-shadow: 0px 1px 5px #999;
+  }
+  
+  .pic {
+    height: 150px;
+    padding: 0 0 20px 0;
+    margin-bottom: 35px;
+  }
+  
+  p.header {
+    padding: 0 20px;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: italic;
+  }
+  
+  p.content {
+    padding: 0 20px;
+    font-size: 12px;
+    text-align: justify;
+  }
+  
+  .card__but {
+    height: 40px;
+    width: 100px;
+    float: right;
+    line-height: 40px;
+    background-color: #59c1ef;
+    margin: 20px;
+    font-size: 12px;
+    border-radius: 5px;
+  }
+
+  .view_course {
+    padding-left: 17px;
+  }
+
+  .enroll_now{
+    padding-left: 1px;
+  }
+  
+  a .card__but:hover {
+    background-color: #4dacd5;
+  }
+  

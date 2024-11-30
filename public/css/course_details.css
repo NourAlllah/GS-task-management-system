@@ -1,0 +1,56 @@
+
+.course_div{
+    margin: 60px 0px;
+}
+
+.course_img{
+    border-radius: 5px;
+    margin: 15px 0px;
+}
+
+.course_title{
+    font-size: xx-large;
+    font-weight: 600;
+    margin: 18px 0px;
+}
+
+.course_description{
+    font-size: large;
+}
+
+.course_lessons{
+    font-size: x-large;
+}
+
+.lesson_div{
+    padding: 20px 30px;
+    width: 60%;
+    border: solid #b3b2b2 1px;
+    border-radius: 4px;
+    margin: 20px 0px;
+}
+
+.lesson_title{
+    font-size: larger;
+    font-weight: 500;
+}
+
+.lesson_description{
+    font-size: medium;
+}
+
+.watch_button{
+    background-color: #79d6f8;
+    padding: 8px;
+    position: relative;
+    left: 80%;
+    margin: 15px 0px 0px 0px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.marg_ver_20{
+    margin: 20px 0px;
+}
+
