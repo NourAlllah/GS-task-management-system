@@ -1,0 +1,9 @@
+.form-div{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-div-contain{
+    padding: 2rem;
+    border-radius: 5px;
+}

@@ -44,11 +44,6 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        $badge = UserBadge::create([
-            'user_id' => $user->id,
-            'badge_id' => 1
-        ]);
-
         event(new Registered($user));
 
         Auth::login($user);

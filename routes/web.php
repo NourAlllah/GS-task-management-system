@@ -16,14 +16,9 @@ Route::get('/', function () {
 Route::get('/dashboard',[UserController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 
-Route::get('/courses/{course}', [CourseController::class, 'show'])->name('courses.show');
-Route::post('/courses/{course}/enroll', [CourseController::class, 'enroll'])->name('course.enroll');
 
 
-Route::post('/lessons/{lesson}/watch', [LessonController::class, 'watch'])->name('lesson.watch');
-Route::get('/lessons/{lesson}', [LessonController::class, 'show'])->name('lessons.show');
 
-Route::post('/submit_comment', [CommentController::class, 'submit'])->name('comment.submit');
 
 use App\Mail\AchievementUnlocked;
 use Illuminate\Support\Facades\Mail;

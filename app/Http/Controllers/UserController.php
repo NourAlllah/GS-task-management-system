@@ -18,6 +18,7 @@ class UserController extends Controller
         });
            
         return view('dashboard', compact('courses')); */
+        return view('dashboard');
 
     }
 
