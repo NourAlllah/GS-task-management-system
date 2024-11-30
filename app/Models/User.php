@@ -45,23 +45,5 @@ class User extends Authenticatable
         ];
     }
 
-    public function courses()
-    {
-        return $this->belongsToMany(Course::class, 'user_courses')->withTimestamps();
-    }
-
-    public function lessons()
-    {
-        return $this->belongsToMany(Lesson::class, 'user_lessons')->withTimestamps();
-    }
-
-    public function comments()
-    {
-        return $this->hasMany(Comment::class);
-    }
-
-    public function achievements()
-    {
-        return $this->belongsToMany(Achievement::class, 'user_achievements')->withTimestamps();
-    }
+   
 }
