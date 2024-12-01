@@ -7,35 +7,23 @@
 
         <title>GS-Task management system</title>
 
-        <!-- Fonts -->
-
         <link rel="stylesheet" type="text/css" href="{{ asset('css/tailwindcss.css') }}">
-
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/cards.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/course_details.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/lesson_details.css') }}">
-
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/layout.css') }}">
+        <link href="https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap" rel="stylesheet">
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
-
-            <!-- Page Heading -->
-            @isset($header)
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endisset
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+        <div class="task-manager">
+            {{ $slot }}
         </div>
     </body>
 </html>
+
+
+
+
+
+
+
