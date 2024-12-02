@@ -1,9 +1,6 @@
 <?php
 
-use App\Http\Controllers\CommentController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\CourseController;
-use App\Http\Controllers\LessonController;
 
 use App\Http\Controllers\ProfileController;
 
@@ -14,9 +11,6 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard',[UserController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
-
-
-
 
 
 

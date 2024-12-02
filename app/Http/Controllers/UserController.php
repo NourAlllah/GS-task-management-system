@@ -1,24 +1,26 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Task;
 use Illuminate\Http\Request;
-use App\Models\Course;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
     public function index()
     {
-        /* $user = Auth::user();
-        $courses = Course::all(); 
+    
+        $user = auth()->user();
 
-        $courses->each(function ($course) use ($userCourse, $user) {
-            $course->enrolled = $userCourse::isUserEnrolledInCourse($user->id, $course->id);
-        });
-           
-        return view('dashboard', compact('courses')); */
-        return view('dashboard');
+        $myTasks = Task::where('created_by', $user->id)->get();
+        $assignedTasks = Task::where('assigned_to', $user->id)->get();
+
+/*         return [$myTasks , $assignedTasks];
+ */        return view('dashboard', [
+            'myTasks' => $myTasks,         
+            'assignedTasks' => $assignedTasks, 
+        ]);
+
 
     }
 

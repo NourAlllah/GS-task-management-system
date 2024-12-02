@@ -121,18 +121,6 @@
     box-shadow: -6px 0 0 0 #d5d7e3, 6px 0 0 0 #d5d7e3;
   }
   
-  .right-bar {
-    width: 320px;
-    border-left: 1px solid #e3e7f7;
-    display: flex;
-    flex-direction: column;
-  }
-  .right-bar .header {
-    font-size: 20px;
-    color: var(--main-text-color);
-    margin-left: 30px;
-  }
-  
   .top-part {
     padding: 30px;
     align-self: flex-end;
@@ -259,6 +247,11 @@
     padding: 20px 30px;
     cursor: pointer;
   }
+
+  .active{
+    border-bottom: 1px solid #6a0363 !important;
+    color: #6a0363 !important;
+  }
   
   #opt-1:checked + label,
   #opt-2:checked + label,
@@ -383,3 +376,5 @@
       padding: 20px;
     }
   }
+
+
