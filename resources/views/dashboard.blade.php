@@ -38,6 +38,7 @@
                 @foreach ($assignedTasks as $task)
                 <div class="task">
                     <span class="label-text">{{ $task->title }}</span>
+                    <a href="{{ route('tasks.show', $task->id) }}" target="_blank" class="view_details_btn">View Details</a>
                     <span class="tag {{ $task->status }}">{{ ucfirst($task->status) }}</span>
                 </div>
                 @endforeach
@@ -48,6 +49,7 @@
                 @foreach ($myTasks as $task)
                 <div class="task">
                     <span class="label-text">{{ $task->title }}</span>
+                    <a href="{{ route('tasks.show', $task->id) }}" target="_blank" class="view_details_btn">View Details</a>
                     <span class="tag {{ $task->status }}">{{ ucfirst($task->status) }}</span>
                 </div>
                 @endforeach

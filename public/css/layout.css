@@ -386,4 +386,11 @@
     padding: 10px;
     border-radius: 18px;
   }
+  .view_details_btn{
+    font-size: 10px;
+    color: var(--tag-color-four-text);
+    background-color: var(--tag-color-four);
+    padding: 5px 10px;
+    border-radius: 18px;
+  }
 

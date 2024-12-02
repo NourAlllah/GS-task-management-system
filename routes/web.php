@@ -15,6 +15,7 @@ Route::get('/dashboard',[UserController::class, 'index'])->middleware(['auth', '
 
 Route::get('/tasks/create', [TaskController::class, 'create_page'])->name('tasks.create.page');
 Route::post('/tasks', [TaskController::class, 'create'])->name('tasks.create');
+Route::get('/tasks/{id}', [TaskController::class, 'show'])->name('tasks.show');
 
 use App\Mail\AchievementUnlocked;
 use Illuminate\Support\Facades\Mail;
