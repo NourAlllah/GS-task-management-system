@@ -320,15 +320,15 @@
     padding: 4px 8px;
     border-radius: 20px;
   }
-  .tag.approved {
+  .tag.completed {
     background-color: var(--tag-color-one);
     color: var(--tag-color-text-one);
   }
-  .tag.progress {
+  .tag.open {
     background-color: var(--tag-color-two);
     color: var(--tag-color-text-two);
   }
-  .tag.review {
+  .tag.in_progress {
     background-color: var(--tag-color-three);
     color: var(--tag-color-text-three);
   }
@@ -377,4 +377,13 @@
     }
   }
 
+
+  .create_task_btn{
+    font-size: 12px;
+    font-weight: 900;
+    color: var(--tag-color-four-text);
+    background-color: var(--tag-color-four);
+    padding: 10px;
+    border-radius: 18px;
+  }
 

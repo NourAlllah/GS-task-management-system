@@ -3,6 +3,9 @@
         <div class="header">
             <div>Tasks</div> 
             <div>
+                <a href="{{ route('tasks.create.page') }}" class="create_task_btn" target="blank">Create New Task</a>
+            </div>
+            <div>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <x-dropdown-link :href="route('logout')"

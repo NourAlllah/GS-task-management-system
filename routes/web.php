@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TaskController;
 
 use App\Http\Controllers\ProfileController;
 
@@ -12,7 +13,8 @@ Route::get('/', function () {
 
 Route::get('/dashboard',[UserController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
-
+Route::get('/tasks/create', [TaskController::class, 'create_page'])->name('tasks.create.page');
+Route::post('/tasks', [TaskController::class, 'create'])->name('tasks.create');
 
 use App\Mail\AchievementUnlocked;
 use Illuminate\Support\Facades\Mail;
