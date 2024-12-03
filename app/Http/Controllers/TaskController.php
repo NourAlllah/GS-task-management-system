@@ -46,4 +46,11 @@ class TaskController extends Controller
         return response()->json($task);
         return redirect()->route('dashboard')->with('success', 'Task created successfully!');
     }
+
+    public function show($id){
+        $task = Task::with(['attachments', 'comments'])->findOrFail($id);
+
+        /* return $task; */
+        return view('task_details', compact('task'));
+    }
 }

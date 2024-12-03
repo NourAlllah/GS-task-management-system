@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Attachment extends Model
 {
     use HasFactory;
+    protected $fillable = ['task_id', 'file_name', 'file_path'];
+
 
     public function task()
     {

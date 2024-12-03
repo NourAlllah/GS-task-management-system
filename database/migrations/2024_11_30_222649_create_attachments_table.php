@@ -9,9 +9,10 @@ class CreateAttachmentsTable extends Migration
     public function up()
     {
         Schema::create('attachments', function (Blueprint $table) {
-            $table->id(); // Auto-incrementing primary key (integer)
-            $table->unsignedBigInteger('task_id'); // FK to tasks
-            $table->string('file_path'); // Path to the file
+            $table->id(); 
+            $table->unsignedBigInteger('task_id'); 
+            $table->string('file_name'); 
+            $table->string('file_path'); 
             $table->timestamps();
 
             $table->foreign('task_id')->references('id')->on('tasks')->onDelete('cascade');

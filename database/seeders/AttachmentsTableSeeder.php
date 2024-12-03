@@ -14,7 +14,8 @@ class AttachmentsTableSeeder extends Seeder
             foreach (range(1, rand(1, 3)) as $attachmentNum) { 
                 DB::table('attachments')->insert([
                     'task_id' => $taskId,
-                    'file_path' => "attachement.txt",
+                    'file_name' => "attachment_$attachmentNum.txt", 
+                    'file_path' => "/storage/attachments/attachment_$attachmentNum.txt", 
                     'created_at' => now(),
                     'updated_at' => now(),
                 ]);
