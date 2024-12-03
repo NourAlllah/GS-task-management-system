@@ -39,7 +39,7 @@ class TaskController extends Controller
             'due_date' => $validated['due_date'],
             'created_by' => auth()->id(),
             'assigned_to' => $validated['assigned_to'],
-            'status' => 'open',
+            'status' => 'opened',
             'attachment' => $attachmentPath, // Save the attachment path if it's uploaded
         ]);
 
@@ -64,7 +64,7 @@ class TaskController extends Controller
     
         // Validate the new status
         $request->validate([
-            'status' => 'required|in:open,in_progress,completed',
+            'status' => 'required|in:opened,in_progress,completed,closed',
         ]);
     
         // Update the status

@@ -11,7 +11,7 @@
                         @csrf
                         <div class="status-dropdown">
                             <select name="status" class="status-select">
-                                @foreach(['open', 'in_progress', 'completed'] as $status)
+                                @foreach(['opened', 'in_progress', 'completed' , 'closed'] as $status)
                                     <option value="{{ $status }}" @if($status === $task->status) disabled selected @endif>
                                         {{ ucfirst($status) }}
                                     </option>
