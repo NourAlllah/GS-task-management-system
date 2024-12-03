@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
@@ -52,5 +53,23 @@ class TaskController extends Controller
 
         /* return $task; */
         return view('task_details', compact('task'));
+    }
+
+    public function updateStatus(Request $request, Task $task)
+    {
+        // Ensure only the assignee can update the status
+        if (auth()->id() !== $task->assigned_to) {
+            abort(403, 'Unauthorized action.');
+        }
+    
+        // Validate the new status
+        $request->validate([
+            'status' => 'required|in:open,in_progress,completed',
+        ]);
+    
+        // Update the status
+        $task->update(['status' => $request->status]);
+    
+        return redirect()->back()->with('success', 'Task status updated successfully.');
     }
 }
