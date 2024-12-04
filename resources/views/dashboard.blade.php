@@ -18,7 +18,7 @@
         </div>
 
         <div class="search-filter">
-            <form class="search-filter-form" method="GET" action="{{ route('tasks.index') }}">
+            <form class="search-filter-form" method="GET" action="{{ route('dashboard') }}">
                 <div class="form-group">
                     <input type="text" name="search" placeholder="Search tasks..." value="{{ request('search') }}">
                 </div>
@@ -50,6 +50,7 @@
                     </select>
                 </div>
                 <button type="submit" class="btn">Filter</button>
+                <a href="{{ route('dashboard') }}" class="btn clear-filters">Clear All</a>
             </form>
         </div>
 
@@ -75,6 +76,7 @@
                 <div class="task">
                     <span class="label-text">{{ $task->title }}</span>
                     <a href="{{ route('tasks.show', $task->id) }}" target="_blank" class="view_details_btn">View Details</a>
+                    <span class="priority {{ $task->priority }}">{{ ucfirst($task->priority) }}</span>
                     <span class="tag {{ $task->status }}">{{ ucfirst($task->status) }}</span>
                 </div>
                 @endforeach
@@ -86,6 +88,7 @@
                 <div class="task">
                     <span class="label-text">{{ $task->title }}</span>
                     <a href="{{ route('tasks.show', $task->id) }}" target="_blank" class="view_details_btn">View Details</a>
+                    <span class="priority {{ $task->priority }}">{{ ucfirst($task->priority) }}</span>
                     <span class="tag {{ $task->status }}">{{ ucfirst($task->status) }}</span>
                 </div>
                 @endforeach

@@ -18,8 +18,8 @@ Route::get('/tasks/create', [TaskController::class, 'create_page'])->name('tasks
 Route::post('/tasks', [TaskController::class, 'create'])->name('tasks.create');
 Route::get('/tasks/{id}', [TaskController::class, 'show'])->name('tasks.show');
 Route::post('/tasks/{task}/update-status', [TaskController::class, 'updateStatus'])->name('tasks.update_status');
-Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
-
+/* Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
+ */
 Route::post('/tasks/{task}/comments', [CommentController::class, 'store'])->name('comments.store');
 
 use App\Mail\AchievementUnlocked;

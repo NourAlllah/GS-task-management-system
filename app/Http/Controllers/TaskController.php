@@ -11,34 +11,39 @@ class TaskController extends Controller
     //
     public function index(Request $request)
     {
+        // Get all users for the assignee dropdown
+        $users = User::all();
+
+        // Start the query
         $query = Task::query();
 
-        // Search by title or description
+        // Apply search filter
         if ($request->filled('search')) {
             $query->where('title', 'like', '%' . $request->search . '%')
                 ->orWhere('description', 'like', '%' . $request->search . '%');
         }
 
-        // Filter by status
+        // Apply status filter
         if ($request->filled('status')) {
             $query->where('status', $request->status);
         }
 
-        // Filter by priority
+        // Apply priority filter
         if ($request->filled('priority')) {
             $query->where('priority', $request->priority);
         }
 
-        // Filter by assignee
+        // Apply assignee filter
         if ($request->filled('assigned_to')) {
             $query->where('assigned_to', $request->assigned_to);
         }
 
-        $tasks = $query->get(); // Get all tasks without pagination
-        $users = User::all();   // Get all users for the filter dropdown
+        // Get tasks for the logged-in user
+        $assignedTasks = $query->where('assigned_to', Auth::id())->get();
+        $myTasks = Task::where('created_by', Auth::id())->get();
 
-        return view('tasks.index', compact('tasks', 'users'));
-    }
+        return view('tasks.index', compact('assignedTasks', 'myTasks', 'users'));
+    }  
 
     public function create_page()
     {
