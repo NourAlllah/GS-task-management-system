@@ -1,11 +1,54 @@
 # GS-Task management system 
 ---------------------
-still 
+This Laravel-based application allows users to manage tasks efficiently. The system demonstrates backend development practices, robust database handling, and secure authentication mechanisms. 
   
 ---------------------
 
-*Features*
- - still
+*Core Features*
+
+Authentication:
+
+- User login and logout (registration excluded).
+- Middleware for route protection.
+
+Database Models:
+
+- User: For authentication and task management.
+- Task: Contains task details such as title, description, due date, status, and assignee.
+- Comment: For task-specific user collaboration.
+- Attachment: Handles task-related file uploads.
+
+Data Migrations and Seeders:
+
+- Migrations to define the schema.
+- Seeders to create:
+        - 3 users.
+        - 100+ tasks for each user.
+
+Dashboard:
+
+- Displays tasks:
+        - Assigned to the user.
+        - Created by the user.
+
+Task Management:
+
+- Users can:
+        - Create tasks.
+        - Assign tasks to others.
+        - Update task status (Open, In Progress, Completed).
+
+Comments:
+
+- Users can comment on tasks for real-time collaboration.
+
+Search and Filter:
+
+- Enables search by title and description.
+- Filters by:
+        - Status
+        - Assignee
+        - Priority
    
 ---------------------
 *Components Used*
