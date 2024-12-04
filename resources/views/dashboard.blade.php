@@ -17,6 +17,42 @@
             </div>
         </div>
 
+        <div class="search-filter">
+            <form class="search-filter-form" method="GET" action="{{ route('tasks.index') }}">
+                <div class="form-group">
+                    <input type="text" name="search" placeholder="Search tasks..." value="{{ request('search') }}">
+                </div>
+                <div class="form-group">
+                    <select name="status">
+                        <option value="">All Statuses</option>
+                        <option value="open" {{ request('status') == 'opened' ? 'selected' : '' }}>Opened</option>
+                        <option value="in_progress" {{ request('status') == 'in_progress' ? 'selected' : '' }}>In Progress</option>
+                        <option value="completed" {{ request('status') == 'completed' ? 'selected' : '' }}>Completed</option>
+                        <option value="closed" {{ request('status') == 'closed' ? 'selected' : '' }}>Closed</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select name="priority">
+                        <option value="">All Priorities</option>
+                        <option value="low" {{ request('priority') == 'low' ? 'selected' : '' }}>Low</option>
+                        <option value="medium" {{ request('priority') == 'medium' ? 'selected' : '' }}>Medium</option>
+                        <option value="high" {{ request('priority') == 'high' ? 'selected' : '' }}>High</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select name="assigned_to">
+                        <option value="">All Assignees</option>
+                        @foreach($users as $user)
+                            <option value="{{ $user->id }}" {{ request('assigned_to') == $user->id ? 'selected' : '' }}>
+                                {{ $user->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+                <button type="submit" class="btn">Filter</button>
+            </form>
+        </div>
+
         <!-- Content Categories -->
         <div class="content-categories">
             <div class="label-wrapper">

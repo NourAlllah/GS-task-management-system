@@ -9,6 +9,37 @@ use Illuminate\Support\Facades\Auth;
 class TaskController extends Controller
 {
     //
+    public function index(Request $request)
+    {
+        $query = Task::query();
+
+        // Search by title or description
+        if ($request->filled('search')) {
+            $query->where('title', 'like', '%' . $request->search . '%')
+                ->orWhere('description', 'like', '%' . $request->search . '%');
+        }
+
+        // Filter by status
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+
+        // Filter by priority
+        if ($request->filled('priority')) {
+            $query->where('priority', $request->priority);
+        }
+
+        // Filter by assignee
+        if ($request->filled('assigned_to')) {
+            $query->where('assigned_to', $request->assigned_to);
+        }
+
+        $tasks = $query->get(); // Get all tasks without pagination
+        $users = User::all();   // Get all users for the filter dropdown
+
+        return view('tasks.index', compact('tasks', 'users'));
+    }
+
     public function create_page()
     {
         $users = User::where('id', '!=', auth()->id())->get();
