@@ -57,7 +57,7 @@ class TaskController extends Controller
             $attachment->save();
         }
 
-        //dispatch(new SendTaskAssignedEmail($task));
+        dispatch(new SendTaskAssignedEmail($task));
 
         return response()->json($task);
         return redirect()->route('dashboard')->with('success', 'Task created successfully!');

@@ -35,13 +35,6 @@ class TaskAssignedNotification extends Mailable
                           'assignedUser' => $this->assignedUser,
                       ]);
 
-        // Attach task files
-        foreach ($this->task->attachments as $attachment) {
-            $email->attach(storage_path('app/' . $attachment->file_path), [
-                'as' => $attachment->file_name, 
-            ]);
-        }
-
         return $email;
     }
 }

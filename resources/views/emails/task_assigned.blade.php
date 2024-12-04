@@ -16,11 +16,15 @@
         <li><strong>Due Date:</strong> {{ $task->due_date }}</li>
     </ul>
 
-    @if(/* $task->attachments->isNotEmpty() */true)
+    @if($task->attachments->isNotEmpty())
         <h4>Attachments:</h4>
         <ul>
             @foreach($task->attachments as $attachment)
-                <li>{{ $attachment->file_name }}</li>
+                <li>
+                    <a href="{{ asset('storage/' . $attachment->file_path) }}" target="_blank">
+                        {{ $attachment->file_name }}
+                    </a>
+                </li>
             @endforeach
         </ul>
     @endif

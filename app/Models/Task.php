@@ -15,7 +15,8 @@ class Task extends Model
         'status',       
         'created_by',   
         'assigned_to',  
-        'due_date'
+        'due_date',
+        'priority'
     ];
 
     public function comments()

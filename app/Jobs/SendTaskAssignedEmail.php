@@ -27,6 +27,6 @@ class SendTaskAssignedEmail implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to($this->task->assignedUser->email)->send(new TaskAssignedNotification($this->task));
+        Mail::to(/* $this->task->assignedUser->email */'Ahmedfcihfawzy@gmail.com')->send(new TaskAssignedNotification($this->task));
     }
 }
