@@ -51,7 +51,7 @@
     padding: 10px 20px;
     font-size: 14px;
     font-weight: bold;
-    color: #fff;
+    color: #fff
     background-color: #007bff;
     border: none;
     border-radius: 4px;
