@@ -3,48 +3,14 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Task;
+use App\Models\Attachment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Jobs\SendTaskAssignedEmail;
 
 class TaskController extends Controller
 {
-    //
-    public function index(Request $request)
-    {
-        // Get all users for the assignee dropdown
-        $users = User::all();
-
-        // Start the query
-        $query = Task::query();
-
-        // Apply search filter
-        if ($request->filled('search')) {
-            $query->where('title', 'like', '%' . $request->search . '%')
-                ->orWhere('description', 'like', '%' . $request->search . '%');
-        }
-
-        // Apply status filter
-        if ($request->filled('status')) {
-            $query->where('status', $request->status);
-        }
-
-        // Apply priority filter
-        if ($request->filled('priority')) {
-            $query->where('priority', $request->priority);
-        }
-
-        // Apply assignee filter
-        if ($request->filled('assigned_to')) {
-            $query->where('assigned_to', $request->assigned_to);
-        }
-
-        // Get tasks for the logged-in user
-        $assignedTasks = $query->where('assigned_to', Auth::id())->get();
-        $myTasks = Task::where('created_by', Auth::id())->get();
-
-        return view('tasks.index', compact('assignedTasks', 'myTasks', 'users'));
-    }  
-
+    
     public function create_page()
     {
         $users = User::where('id', '!=', auth()->id())->get();
@@ -53,33 +19,44 @@ class TaskController extends Controller
 
     public function create(Request $request)
     {
+    
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
-            // Validate that the due_date is a date and is not before today's date
             'due_date' => 'required|date|after_or_equal:' . now()->toDateString(),
             'attachment' => 'nullable|file|mimes:pdf,jpg,png,docx|max:10240', // 10 MB max size
             'assigned_to' => 'required|exists:users,id',
         ]);
-    
-        // Handle the attachment if it exists
-        $attachmentPath = null;
-        if ($request->hasFile('attachment')) {
-            $attachmentPath = $request->file('attachment')->store('attachments', 'public'); // store in 'storage/app/public/attachments'
-        }
-
+     
+        
         // Create the task
-        $task =  Task::create([
+        $task = Task::create([
             'title' => $validated['title'],
             'description' => $validated['description'],
             'due_date' => $validated['due_date'],
             'created_by' => auth()->id(),
             'assigned_to' => $validated['assigned_to'],
             'status' => 'opened',
-            'attachment' => $attachmentPath, // Save the attachment path if it's uploaded
         ]);
 
-         
+        $attachmentPath = null;
+
+        if ($request->hasFile('attachment')) {
+            $file = $request->file('attachment');
+            $fileName = $file->getClientOriginalName();
+           
+            $attachmentPath = $request->file('attachment')->store('attachments', 'public'); 
+
+            $attachment = new Attachment([
+                'task_id' => $task->id,
+                'file_path' => $attachmentPath,
+                'file_name' => $fileName
+            ]);
+            $attachment->save();
+        }
+
+        dispatch(new SendTaskAssignedEmail($task));
+
         return response()->json($task);
         return redirect()->route('dashboard')->with('success', 'Task created successfully!');
     }

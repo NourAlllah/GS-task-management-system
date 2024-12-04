@@ -3,6 +3,7 @@
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\CommentController;
+use Illuminate\Support\Facades\Mail;
 
 use App\Http\Controllers\ProfileController;
 
@@ -18,12 +19,21 @@ Route::get('/tasks/create', [TaskController::class, 'create_page'])->name('tasks
 Route::post('/tasks', [TaskController::class, 'create'])->name('tasks.create');
 Route::get('/tasks/{id}', [TaskController::class, 'show'])->name('tasks.show');
 Route::post('/tasks/{task}/update-status', [TaskController::class, 'updateStatus'])->name('tasks.update_status');
-/* Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
- */
 Route::post('/tasks/{task}/comments', [CommentController::class, 'store'])->name('comments.store');
 
-use App\Mail\AchievementUnlocked;
-use Illuminate\Support\Facades\Mail;
+Route::get('/send-test-email', function () {
+    $data = [
+        'name' => 'John Doe',
+        'message' => 'This is a test email from your Laravel application',
+    ];
+
+    Mail::send('emails.test', $data, function ($message) {
+        $message->to('nourabase1998@gmail.com', 'Recipient Name')
+               ->subject('Test Email from Laravel');
+    });
+
+    return 'Test email sent!';
+});
 
 
 Route::middleware('auth')->group(function () {
