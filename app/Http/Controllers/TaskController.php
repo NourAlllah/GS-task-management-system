@@ -24,6 +24,7 @@ class TaskController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
             'due_date' => 'required|date|after_or_equal:' . now()->toDateString(),
+            'priority' => 'required|in:low,medium,high',
             'attachment' => 'nullable|file|mimes:pdf,jpg,png,docx|max:10240', // 10 MB max size
             'assigned_to' => 'required|exists:users,id',
         ]);
@@ -37,6 +38,7 @@ class TaskController extends Controller
             'created_by' => auth()->id(),
             'assigned_to' => $validated['assigned_to'],
             'status' => 'opened',
+            'priority' => $validated['priority']
         ]);
 
         $attachmentPath = null;
@@ -55,7 +57,7 @@ class TaskController extends Controller
             $attachment->save();
         }
 
-        dispatch(new SendTaskAssignedEmail($task));
+        //dispatch(new SendTaskAssignedEmail($task));
 
         return response()->json($task);
         return redirect()->route('dashboard')->with('success', 'Task created successfully!');

@@ -15,6 +15,15 @@
             </div>
 
             <div class="form-group">
+                <label for="priority">Priority</label>
+                <select name="priority" class="form-control">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+
+            <div class="form-group">
                 <label for="due_date">Due Date</label>
                 <input type="date" id="due_date" name="due_date" class="form-control" required>
             </div>
@@ -34,7 +43,7 @@
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-success">Create Task</button>
+            <button type="submit" class="btn">Create Task</button>
         </form>
     </div>
 </x-app-layout>
@@ -51,7 +60,7 @@
     padding: 10px 20px;
     font-size: 14px;
     font-weight: bold;
-    color: #fff
+    color: #fff;
     background-color: #007bff;
     border: none;
     border-radius: 4px;

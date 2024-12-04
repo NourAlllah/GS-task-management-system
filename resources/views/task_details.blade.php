@@ -24,6 +24,7 @@
                     {{ ucfirst($task->status) }}
                 @endif
             </p>
+            <p><strong>Priority:</strong> {{ ucfirst($task->priority) }}</p>
             <p><strong>Due Date:</strong> {{ $task->due_date }}</p>
         </div>
     
@@ -35,7 +36,7 @@
                 <ul>
                     @foreach($task->attachments as $attachment)
                         <li>
-                            <a href="{{ asset($attachment->file_path) }}" target="_blank">
+                            <a href="{{ asset('storage/' .$attachment->file_path) }}" target="_blank" >
                                 {{ $attachment->file_name }}
                             </a>
                         </li>
