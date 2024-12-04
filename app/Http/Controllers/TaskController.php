@@ -59,7 +59,6 @@ class TaskController extends Controller
 
         dispatch(new SendTaskAssignedEmail($task));
 
-        return response()->json($task);
         return redirect()->route('dashboard')->with('success', 'Task created successfully!');
     }
 
