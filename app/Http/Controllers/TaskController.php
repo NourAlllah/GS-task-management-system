@@ -5,12 +5,21 @@ use App\Models\User;
 use App\Models\Task;
 use App\Models\Attachment;
 use Illuminate\Http\Request;
+use App\Services\TaskService;
+
 use Illuminate\Support\Facades\Auth;
 use App\Jobs\SendTaskAssignedEmail;
 
 class TaskController extends Controller
 {
     
+    protected $taskService;
+
+    public function __construct(TaskService $taskService)
+    {
+        $this->taskService = $taskService;
+    }
+
     public function create_page()
     {
         $users = User::where('id', '!=', auth()->id())->get();
@@ -29,43 +38,22 @@ class TaskController extends Controller
             'assigned_to' => 'required|exists:users,id',
         ]);
      
-        
-        // Create the task
-        $task = Task::create([
+        $task = $this->taskService->createTask([
             'title' => $validated['title'],
             'description' => $validated['description'],
             'due_date' => $validated['due_date'],
-            'created_by' => auth()->id(),
+            'priority' => $validated['priority'],
             'assigned_to' => $validated['assigned_to'],
-            'status' => 'opened',
-            'priority' => $validated['priority']
+            'attachment' => $request->file('attachment') ?? null,
         ]);
 
-        $attachmentPath = null;
-
-        if ($request->hasFile('attachment')) {
-            $file = $request->file('attachment');
-            $fileName = $file->getClientOriginalName();
-           
-            $attachmentPath = $request->file('attachment')->store('attachments', 'public'); 
-
-            $attachment = new Attachment([
-                'task_id' => $task->id,
-                'file_path' => $attachmentPath,
-                'file_name' => $fileName
-            ]);
-            $attachment->save();
-        }
-
-        dispatch(new SendTaskAssignedEmail($task));
-
         return redirect()->route('dashboard')->with('success', 'Task created successfully!');
+
     }
 
     public function show($id){
         $task = Task::with(['attachments', 'comments'])->findOrFail($id);
 
-        /* return $task; */
         return view('task_details', compact('task'));
     }
 

@@ -25,7 +25,7 @@
                 <div class="form-group">
                     <select name="status">
                         <option value="">All Statuses</option>
-                        <option value="open" {{ request('status') == 'opened' ? 'selected' : '' }}>Opened</option>
+                        <option value="opened" {{ request('status') == 'opened' ? 'selected' : '' }}>Opened</option>
                         <option value="in_progress" {{ request('status') == 'in_progress' ? 'selected' : '' }}>In Progress</option>
                         <option value="completed" {{ request('status') == 'completed' ? 'selected' : '' }}>Completed</option>
                         <option value="closed" {{ request('status') == 'closed' ? 'selected' : '' }}>Closed</option>
