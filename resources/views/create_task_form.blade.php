@@ -3,7 +3,6 @@
         <h1  class="header">Create New Task</h1>
         <form action="{{ route('tasks.create') }}" method="POST" enctype="multipart/form-data">
             @csrf
-
             <div class="form-group">
                 <label for="title">Title</label>
                 <input type="text" id="title" name="title" class="form-control" required>
@@ -47,50 +46,3 @@
         </form>
     </div>
 </x-app-layout>
-
-
-<style>
-.header{
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 12px;
-}
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 4px;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background-color: #0056b3;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-control {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.form-control:focus {
-    border-color: #007bff;
-    outline: none;
-}
-
-</style>
-
-<script>
-    // JavaScript to set the min attribute for the due_date input field to today's date
-    document.getElementById('due_date').setAttribute('min', new Date().toISOString().split('T')[0]);
-</script>

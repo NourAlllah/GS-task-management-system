@@ -10,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/tailwindcss.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/layout.css') }}">
         <link href="https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap" rel="stylesheet">
+        <script src="{{ asset('js/app.js') }}"></script>
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])

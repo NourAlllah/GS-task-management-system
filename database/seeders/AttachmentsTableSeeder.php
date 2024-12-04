@@ -15,7 +15,7 @@ class AttachmentsTableSeeder extends Seeder
                 DB::table('attachments')->insert([
                     'task_id' => $taskId,
                     'file_name' => "attachment_$attachmentNum.txt", 
-                    'file_path' => "/storage/attachments/attachment_$attachmentNum.txt", 
+                    'file_path' => "/attachments/attachment_$attachmentNum.txt", 
                     'created_at' => now(),
                     'updated_at' => now(),
                 ]);
