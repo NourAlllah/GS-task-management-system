@@ -22,21 +22,21 @@ Data Migrations and Seeders:
 
 - Migrations to define the schema.
 - Seeders to create:
-        - 3 users.
-        - 100+ tasks for each user.
+   - 3 users.
+   - 100+ tasks for each user.
 
 Dashboard:
 
 - Displays tasks:
-        - Assigned to the user.
-        - Created by the user.
+   - Assigned to the user.
+   - Created by the user.
 
 Task Management:
 
 - Users can:
-        - Create tasks.
-        - Assign tasks to others.
-        - Update task status (Open, In Progress, Completed).
+   - Create tasks.
+   - Assign tasks to others.
+   - Update task status (Open, In Progress, Completed).
 
 Comments:
 
@@ -46,9 +46,9 @@ Search and Filter:
 
 - Enables search by title and description.
 - Filters by:
-        - Status
-        - Assignee
-        - Priority
+   - Status
+   - Assignee
+   - Priority
    
 ---------------------
 *Components Used*
