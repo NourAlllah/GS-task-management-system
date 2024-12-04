@@ -19,10 +19,10 @@
 
         <div class="search-filter">
             <form class="search-filter-form" method="GET" action="{{ route('dashboard') }}">
-                <div class="form-group">
+                <div class="form-group dashboard-input">
                     <input type="text" name="search" placeholder="Search tasks..." value="{{ request('search') }}">
                 </div>
-                <div class="form-group">
+                <div class="form-group dashboard-input">
                     <select name="status">
                         <option value="">All Statuses</option>
                         <option value="opened" {{ request('status') == 'opened' ? 'selected' : '' }}>Opened</option>
@@ -31,7 +31,7 @@
                         <option value="closed" {{ request('status') == 'closed' ? 'selected' : '' }}>Closed</option>
                     </select>
                 </div>
-                <div class="form-group">
+                <div class="form-group dashboard-input">
                     <select name="priority">
                         <option value="">All Priorities</option>
                         <option value="low" {{ request('priority') == 'low' ? 'selected' : '' }}>Low</option>
@@ -39,7 +39,7 @@
                         <option value="high" {{ request('priority') == 'high' ? 'selected' : '' }}>High</option>
                     </select>
                 </div>
-                <div class="form-group">
+                <div class="form-group dashboard-input">
                     <select name="assigned_to">
                         <option value="">All Assignees</option>
                         @foreach($users as $user)

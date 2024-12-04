@@ -32,6 +32,6 @@
     <p>Please log in to the task management system for more details.</p>
 
     <p>Regards,</p>
-    <p>{{ config('app.name') }}</p>
+    <p>GS-task management team</p>
 </body>
 </html>
