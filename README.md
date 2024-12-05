@@ -1,5 +1,5 @@
 # GS-Task management system 
----------------------
+
 This Laravel-based application allows users to manage tasks efficiently. The system demonstrates backend development practices, robust database handling, and secure authentication mechanisms. 
   
 ---------------------
