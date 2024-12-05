@@ -81,7 +81,7 @@ Seeds:
 
 1- Clone the repository:
 
-        git clone https://github.com/NourAlllah/34ml_task
+        git clone https://github.com/NourAlllah/GS-task-management-system.git
 
 2- Install dependencies:
 
@@ -115,22 +115,28 @@ Seeds:
 5- Generate Application Key:
 
         php artisan key:generate
+
+6- Run for  Vite manifest
+
+        npm run build
         
-6- php artisan migrate:
+7- php artisan migrate:
 
         php artisan migrate
-
-7- clearinf config cash:
-
-        php artisan config:clear
-
-        php artisan config:cache 
-
 
 8- Seed the database:
 
         php artisan db:seed
 
+9- clearinf config cash:
+
+        php artisan config:clear
+
+        php artisan config:cache 
+
+10- Link Storage to public 
+
+        php artisan storage:link
 
 9- Start the development server:
 
