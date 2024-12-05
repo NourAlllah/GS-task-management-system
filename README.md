@@ -70,31 +70,6 @@ Seeds:
 
 ---------------------
 
-
-*API Endpoints*
-Achievements Endpoint
-Endpoint
-
-        GET /api/users/{user}/achievements
-
-Response
-
-        {
-            "unlocked_achievements": ["First Lesson Watched", "5 Lessons Watched", "First Comment Written"],
-            "next_available_achievements": ["10 Lessons Watched", "3 Comments Written"],
-            "current_badge": "Beginner",
-            "next_badge": "Intermediate",
-            "remaining_to_unlock_next_badge": 3
-        }
-        
-  - unlocked_achievements (string[]) --- An array of the user’s unlocked achievements by name.
-  - next_available_achievements (string[]) --- An array of the next achievements the user can unlock by name.
-  - current_badge (string)
-  - next_badge (string)
-  - remaining_to_unlock_next_badge (int)
-
-     --------------------- 
-
 *Setup and Installation*
 
 1- Clone the repository:
