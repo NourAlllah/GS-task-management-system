@@ -60,7 +60,7 @@ Email Notifications:
 *Components Used*
 
 Jobs:
-- This project utilizes Laravel Jobs for handling background tasks and asynchronous processing. Jobs are used for tasks such as sending emails of new achievment.
+- This project utilizes Laravel Jobs for handling background tasks and asynchronous processing. Jobs are used for tasks such as sending emails of new task created.
 
 Migrations:
 - Database migrations are used to manage database schema changes and ensure consistency across different environments. Migrations are used to create and modify database tables.
