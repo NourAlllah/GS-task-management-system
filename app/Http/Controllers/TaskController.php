@@ -59,17 +59,14 @@ class TaskController extends Controller
 
     public function updateStatus(Request $request, Task $task)
     {
-        // Ensure only the assignee can update the status
         if (auth()->id() !== $task->assigned_to) {
             abort(403, 'Unauthorized action.');
         }
     
-        // Validate the new status
         $request->validate([
             'status' => 'required|in:opened,in_progress,completed,closed',
         ]);
     
-        // Update the status
         $task->update(['status' => $request->status]);
     
         return redirect()->back()->with('success', 'Task status updated successfully.');
