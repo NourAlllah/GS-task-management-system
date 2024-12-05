@@ -57,6 +57,7 @@ Email Notifications:
    - New comments.
 
 Additionally, I have written unit tests for some of the functionalities of the application. Though not all functions are tested, I focused on core operations such as task creation and user authentication to ensure that the critical parts of the system are functioning correctly.  
+
 ---------------------
 *Components Used*
 
