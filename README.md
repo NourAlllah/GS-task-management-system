@@ -69,6 +69,13 @@ Seeds:
 - Database seeding is used to populate the database with initial data. Seeders are used to create sample data for testing purposes.
 
 ---------------------
+*versions used*
+
+- PHP 8.2.12
+- Laravel Framework 11.13.0
+- Composer version 2.7.2
+- Node js v20.13.1
+- NPM 10.5.2
 
 *Setup and Installation*
 
