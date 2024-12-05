@@ -49,6 +49,12 @@ Search and Filter:
    - Status
    - Assignee
    - Priority
+
+Email Notifications:
+- Notifications for:
+   - Task assignments.
+   - Status updates.
+   - New comments.
    
 ---------------------
 *Components Used*
@@ -62,28 +68,6 @@ Migrations:
 Seeds:
 - Database seeding is used to populate the database with initial data. Seeders are used to create sample data for testing purposes.
 
----------------------
- *Achievements*
- 
- - Lessons Watched Achievements
-    - First Lesson Watched
-    - 5 Lessons Watched
-    - 10 Lessons Watched
-    - 25 Lessons Watched
-    - 50 Lessons Watched
- - Comments Written Achievements
-    - First Comment Written
-    - 3 Comments Written
-    - 5 Comments Written
-    - 10 Comments Written
-    - 20 Comments Written
-  - Badges
-    - Beginner: 0 Achievements
-    - Intermediate: 4 Achievements
-    - Advanced: 8 Achievements
-    - Master: 10 Achievements
-
-      
 ---------------------
 
 
