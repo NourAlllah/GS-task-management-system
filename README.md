@@ -140,11 +140,11 @@ Seeds:
 
         php artisan storage:link
 
-9- Start the development server:
+11- Start the development server:
 
         php artisan serve
 
-10- Ensure that queue workers are running to handle jobs:
+12- Ensure that queue workers are running to handle jobs:
 
         php artisan queue:work
 
